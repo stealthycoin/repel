@@ -97,7 +97,7 @@ var arrange = function () {
 	
 	magnetic: function(a, b) {
 	    //F = K_e/r^2
-	    var k = 10000;
+	    var k = 50000;
 	    var r2 = Math.pow(a.pos.distanceFrom(b.pos), 2);
 	    var F = a.pos.subtract(b.pos).toUnitVector();
 	    //scale
@@ -153,6 +153,10 @@ var arrange = function () {
 	    context.fillText(node.words, node.pos.e(1), node.pos.e(2)+.5*h);
 	},
 	
+	click: function(x,y) {
+	    
+	},
+
 	endPoint: function(node, box, w, h) {
 	    //draws endpoints on line from node to center
 	    var x = node.pos;
@@ -162,8 +166,8 @@ var arrange = function () {
 	    var b = -m*y.e(1) + y.e(2);
 	    //y = mx+b
 	    //x = (y-b)/m
-	    
-	    //no idea why I need these constants go go gadget JS probably...
+
+	    //bounding box
 	    var top = y.e(2) - .5*h - 3;
 	    var bot = y.e(2) + .5*h + 3;
 	    var left = y.e(1) - .5*w - 3;
@@ -209,7 +213,6 @@ var arrange = function () {
 	    context.strokeStyle = 'black';
 	    context.fill();
 	    context.stroke();
-
 	}
     };
 }();
